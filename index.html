@@ -1,13 +1,56 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	  <title>HR Dashboard</title>
-	  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	</head>
-	<body>
-	  <div id="app">
-	    {{ message }}
-	  </div>
-	  <script src="index.js"></script>
-
-	</body>
+  <head>
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="main.css" />
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Enter details</h1>
+      <form id="source-form"
+	    @submit="checkForm">
+	<div v-if="errors.length">
+	  <p>Please correct the following errors</p>
+	  <ul>
+	    <li v-for="error in errors">{{ error }}</li>
+	  </ul>
+	</div>
+	<div>
+	  <label for="name">Name: </label>
+	  <input type="text" name="name" v-model="name" />
+	</div>
+	<div>
+	  <label for="email">E-Mail: </label>
+	  <input type="text" name="email" v-model="email"/>
+	</div>
+	<div>
+	  <label for="mobile">Mobile No: </label>
+	  <input type="text" name="mobile" v-model="mobile"/>
+	</div>
+	<div>
+	  <label for="address">Address: </label>
+	  <textarea name="address" v-model="address"></textarea>
+	</div>
+	<div>
+	  <label for="city">City: </label>
+	  <input type="text" name="city" v-model="city"/>
+	</div>
+	<div>
+	  <label for="profession">Profession: </label>
+	  <select name="profession" v-model="profession">
+	    <option value="doctor">Doctor</option>
+	    <option value="nurse">Nurse</option>
+	    <option value="paramedic">Paramedic</option>
+	  </select>
+	</div>
+	<div>
+	  <input type="submit" value="Submit" />
+	</div>
+      </form>
+    </div>
+    <script src="index.js"></script>
+    
+  </body>
 </html>

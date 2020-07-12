@@ -1,0 +1,23 @@
+#source-form input {
+    width: 50%;
+    display: block;
+}
+
+#source-form div {
+    padding-top: 1em;
+}
+
+#source-form textarea {
+    width: 50%;
+    display: block;
+}
+
+#source-form select {
+    width: 50%;
+    display: block;
+}
+
+#source-form {
+    width: 100em;
+    padding-left: 25%;
+}
