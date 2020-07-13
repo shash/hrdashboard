@@ -59,7 +59,7 @@
 	  </select>
 	</div>
 	<div>
-	  <input type="submit" value="Submit" v-enabled="submitting"/>
+	  <input type="submit" value="Submit" :disabled="submitting"/>
 	</div>
       </form>
       <p v-show="dataSubmitted">Your entry was submitted</p>
