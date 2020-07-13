@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="main.css" />
+    <meta charset="utf-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!--    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>-->
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
+  </head>
+  <body>
+    <div id="app">
+      <h1>Enter details</h1>
+      <form id="source-form"
+	    @submit="checkForm">
+	<div v-if="errors.length">
+	  <p>Please correct the following errors</p>
+	  <ul>
+	    <li v-for="error in errors">{{ error }}</li>
+	  </ul>
+	</div>
+	<div>
+	  <label for="name">Name: </label>
+	  <input type="text" name="name" v-model="name" />
+	</div>
+	<div>
+	  <label for="email">E-Mail: </label>
+	  <input type="text" name="email" v-model="email"/>
+	</div>
+	<div>
+	  <label for="mobile">Mobile No: </label>
+	  <input type="text" name="mobile" v-model="mobile"/>
+	</div>
+	<div>
+	  <label for="address">Address: </label>
+	  <textarea name="address" v-model="address"></textarea>
+	</div>
+	<div>
+	  <label for="city">City: </label>
+	  <input type="text" name="city" v-model="city"/>
+	</div>
+	<div>
+	  <label for="profession">Profession: </label>
+	  <select name="profession" v-model="profession">
+	    <option value="doctor">Doctor</option>
+	    <option value="nurse">Nurse</option>
+	    <option value="paramedic">Paramedic</option>
+	  </select>
+	</div>
+	<div>
+	  <input type="submit" value="Submit" :disabled="submitting"/>
+	</div>
+      </form>
+      <p v-show="dataSubmitted">Your entry was submitted</p>
+    </div>
+    <a href="index.html">Back to dashboard</a>
+    <script src="index.js" type="text/javascript"></script>
+    
+  </body>
+</html>
