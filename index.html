@@ -5,6 +5,18 @@
     <link rel="stylesheet" href="main.css" />
     <meta charset="utf-8" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+    <script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+    <script type="text/javascript" src="lib/url-template/url-template.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+    <script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+    <script type="text/javascript" src="apigClient.js"></script>
+
   </head>
   <body>
     <div id="app">
@@ -46,9 +58,11 @@
 	  </select>
 	</div>
 	<div>
-	  <input type="submit" value="Submit" />
+	  <input type="submit" value="Submit" v-enabled="submitting"/>
 	</div>
       </form>
+      <p v-show="dataSubmitted">Your entry was submitted</p>
+      <p>test</p>
     </div>
     <script src="index.js"></script>
     
